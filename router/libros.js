@@ -26,17 +26,17 @@ router.post("/", async (req, res) => {
 // Ruta para modificar un libro:
 router.put('/:id', async (req, res) => {
     try {
-        const libro = await libro.findByIdAndUpdate(req.params.id, req.body, {new: true});
-        res.json(libro);
+        const Libro = await Libro.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        res.json(Libro);
     } catch (error) {
-        res.status(500).json({error: 'Error al modificar el libro'})
+        res.status(500).json({error: 'Error al modificar el libro'});
     }
 });
 
 // Ruta para eliminar un libro:
 router.delete('/:id', async (req, res) => {
     try {
-        await libro.findByIdAndDelete(req.params.id);
+        await Libro.findByIdAndDelete(req.params.id);
         res.json({mensaje: "Libro eliminado correctamente"});
     } catch (error) {
         res.status(500).json({error: 'Error al eliminar el libro'});
